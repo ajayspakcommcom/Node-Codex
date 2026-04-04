@@ -1,0 +1,11 @@
+{
+  "name": "@packages/order-contracts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo lint order-contracts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo test order-contracts"
+  }
+}

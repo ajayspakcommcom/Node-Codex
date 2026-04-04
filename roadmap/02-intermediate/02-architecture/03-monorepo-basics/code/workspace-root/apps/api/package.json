@@ -1,0 +1,16 @@
+{
+  "name": "@apps/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo lint api",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo test api"
+  },
+  "dependencies": {
+    "@packages/logger": "workspace:*",
+    "@packages/order-contracts": "workspace:*",
+    "@packages/shared-config": "workspace:*"
+  }
+}
