@@ -1,0 +1,15 @@
+export interface Logger {
+  info(message: string, metadata?: Readonly<Record<string, unknown>>): void;
+  error(message: string, metadata?: Readonly<Record<string, unknown>>): void;
+}
+
+export function createLogger(service: string): Logger {
+  return {
+    info(message: string, metadata: Readonly<Record<string, unknown>> = {}): void {
+      console.log(`[${service}] ${message}`, metadata);
+    },
+    error(message: string, metadata: Readonly<Record<string, unknown>> = {}): void {
+      console.error(`[${service}] ${message}`, metadata);
+    },
+  };
+}

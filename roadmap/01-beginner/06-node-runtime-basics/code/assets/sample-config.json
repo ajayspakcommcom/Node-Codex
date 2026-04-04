@@ -1,0 +1,6 @@
+{
+  "serviceName": "orders-runtime-example",
+  "featureFlags": {
+    "auditLogs": true
+  }
+}
