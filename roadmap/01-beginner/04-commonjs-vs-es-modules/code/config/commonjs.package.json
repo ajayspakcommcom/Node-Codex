@@ -1,0 +1,5 @@
+{
+  "name": "commonjs-example",
+  "private": true,
+  "main": "./index.cjs"
+}
