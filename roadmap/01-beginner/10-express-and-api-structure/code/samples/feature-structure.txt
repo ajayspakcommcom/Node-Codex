@@ -1,0 +1,12 @@
+src/
+  features/
+    orders/
+      order.routes.ts
+      order.controller.ts
+      order.service.ts
+      order.repository.ts
+      order.validation.ts
+  common/
+    middleware/
+      request-logger.ts
+      error-handler.ts
