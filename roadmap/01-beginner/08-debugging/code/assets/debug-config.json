@@ -1,0 +1,7 @@
+{
+  "serviceName": "debug-example-service",
+  "port": 3000,
+  "features": {
+    "auditLogs": true
+  }
+}
