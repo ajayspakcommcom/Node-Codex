@@ -1,0 +1,72 @@
+import type { CustomerRow, OrderRow } from "./data-access-types.js";
+
+export const exampleOrders: readonly OrderRow[] = [
+  {
+    id: "ord_3001",
+    tenantId: "tenant_alpha",
+    customerId: "cust_1",
+    status: "placed",
+    channel: "web",
+    region: "IN",
+    totalInCents: 129_900,
+    createdAt: "2026-04-01T09:00:00.000Z",
+  },
+  {
+    id: "ord_3002",
+    tenantId: "tenant_alpha",
+    customerId: "cust_2",
+    status: "placed",
+    channel: "mobile",
+    region: "IN",
+    totalInCents: 19_900,
+    createdAt: "2026-04-01T10:00:00.000Z",
+  },
+  {
+    id: "ord_3003",
+    tenantId: "tenant_alpha",
+    customerId: "cust_3",
+    status: "refunded",
+    channel: "web",
+    region: "US",
+    totalInCents: 24_900,
+    createdAt: "2026-04-01T11:00:00.000Z",
+  },
+  {
+    id: "ord_3004",
+    tenantId: "tenant_alpha",
+    customerId: "cust_1",
+    status: "placed",
+    channel: "partner",
+    region: "EU",
+    totalInCents: 4_900,
+    createdAt: "2026-04-02T08:00:00.000Z",
+  },
+  {
+    id: "ord_3005",
+    tenantId: "tenant_alpha",
+    customerId: "cust_4",
+    status: "placed",
+    channel: "web",
+    region: "US",
+    totalInCents: 159_900,
+    createdAt: "2026-04-03T09:45:00.000Z",
+  },
+  {
+    id: "ord_3006",
+    tenantId: "tenant_beta",
+    customerId: "cust_5",
+    status: "placed",
+    channel: "web",
+    region: "US",
+    totalInCents: 189_900,
+    createdAt: "2026-04-03T14:10:00.000Z",
+  },
+];
+
+export const exampleCustomers: readonly CustomerRow[] = [
+  { id: "cust_1", tenantId: "tenant_alpha", segment: "enterprise" },
+  { id: "cust_2", tenantId: "tenant_alpha", segment: "gold" },
+  { id: "cust_3", tenantId: "tenant_alpha", segment: "standard" },
+  { id: "cust_4", tenantId: "tenant_alpha", segment: "enterprise" },
+  { id: "cust_5", tenantId: "tenant_beta", segment: "enterprise" },
+];
