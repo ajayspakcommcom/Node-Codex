@@ -1,0 +1,14 @@
+{
+  "endpoint": "GET /v1/orders",
+  "query": {
+    "cursor": "opaque string",
+    "limit": "number"
+  },
+  "response": {
+    "items": [],
+    "pageInfo": {
+      "nextCursor": "opaque string or null",
+      "hasNextPage": true
+    }
+  }
+}
