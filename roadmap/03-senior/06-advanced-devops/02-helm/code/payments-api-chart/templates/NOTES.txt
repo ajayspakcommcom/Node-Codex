@@ -1,0 +1,8 @@
+1. Validate rendered manifests before applying:
+   helm template {{ .Release.Name }} . -f values-production.yaml
+
+2. Review the rollout:
+   kubectl rollout status deployment/{{ include "payments-api.fullname" . }}
+
+3. If required, rollback safely:
+   helm rollback {{ .Release.Name }} <revision>

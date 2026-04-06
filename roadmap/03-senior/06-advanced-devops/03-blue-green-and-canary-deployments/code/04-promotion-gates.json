@@ -1,0 +1,9 @@
+{
+  "service": "checkout-api",
+  "promotionGates": [
+    "p95 latency remains within 5% of baseline",
+    "error rate stays below 0.5%",
+    "no increase in checkout authorization failures",
+    "no sev-level alerts triggered during canary window"
+  ]
+}

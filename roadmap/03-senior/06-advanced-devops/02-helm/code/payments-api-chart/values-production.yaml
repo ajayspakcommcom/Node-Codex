@@ -1,0 +1,17 @@
+replicaCount: 5
+
+ingress:
+  host: payments.example.com
+  tlsSecretName: payments-api-production-tls
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: "2"
+    memory: 1Gi
+
+autoscaling:
+  minReplicas: 5
+  maxReplicas: 20

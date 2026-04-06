@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: checkout-api
+  namespace: checkout-prod
+spec:
+  replicas: 6
+  strategy:
+    canary:
+      canaryService: checkout-api-canary
+      stableService: checkout-api-stable
+      steps:
+        - setWeight: 10
+        - pause:
+            duration: 5m
+        - setWeight: 25
+        - pause:
+            duration: 10m
+        - setWeight: 50
+        - pause:
+            duration: 15m
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: checkout-api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: checkout-api
+    spec:
+      containers:
+        - name: checkout-api
+          image: ghcr.io/example/checkout-api:1.25.0

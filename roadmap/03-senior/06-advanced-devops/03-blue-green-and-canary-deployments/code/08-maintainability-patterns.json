@@ -1,0 +1,17 @@
+{
+  "controls": [
+    {
+      "control": "shared rollout policy",
+      "owner": "platform-team"
+    },
+    {
+      "control": "service compatibility checklist",
+      "owner": "service-team"
+    },
+    {
+      "control": "promotion and rollback runbooks",
+      "owner": "incident-management-team"
+    }
+  ],
+  "note": "Enterprise rollout strategies stay maintainable when traffic shifting, promotion gates, and rollback rules are standardized."
+}

@@ -1,0 +1,9 @@
+{
+  "service": "checkout-api",
+  "rollbackCriteria": [
+    "error budget burn exceeds release policy threshold",
+    "customer checkout success rate drops below SLO guardrail",
+    "database or queue backlog rises beyond steady-state tolerance",
+    "critical dependency timeout rate increases materially after traffic shift"
+  ]
+}

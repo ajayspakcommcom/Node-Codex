@@ -1,0 +1,17 @@
+replicaCount: 2
+
+ingress:
+  host: payments.staging.example.com
+  tlsSecretName: payments-api-staging-tls
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  minReplicas: 2
+  maxReplicas: 6

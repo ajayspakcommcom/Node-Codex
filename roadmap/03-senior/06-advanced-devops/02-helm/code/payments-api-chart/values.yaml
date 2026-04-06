@@ -1,0 +1,47 @@
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: ghcr.io/example/payments-api
+  tag: "1.18.0"
+  pullPolicy: IfNotPresent
+
+replicaCount: 3
+
+service:
+  port: 80
+  targetPort: 8080
+
+metrics:
+  enabled: true
+  port: 9090
+  path: /metrics
+
+ingress:
+  enabled: true
+  className: nginx
+  host: payments.example.com
+  tlsSecretName: payments-api-tls
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: "1"
+    memory: 768Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 12
+  cpuUtilizationPercentage: 70
+
+config:
+  NODE_ENV: production
+  LOG_LEVEL: info
+  PORT: "8080"
+  IDENTITY_API_BASE_URL: https://identity.internal.example
+
+secretNames:
+  appSecrets: payments-api-secrets

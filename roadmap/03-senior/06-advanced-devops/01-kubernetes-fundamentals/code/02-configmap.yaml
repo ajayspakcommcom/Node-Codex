@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payments-api-config
+  namespace: payments-prod
+  labels:
+    app.kubernetes.io/name: payments-api
+    app.kubernetes.io/component: application
+data:
+  NODE_ENV: production
+  LOG_LEVEL: info
+  PORT: "8080"
+  HTTP_KEEP_ALIVE_TIMEOUT_MS: "5000"
+  IDENTITY_API_BASE_URL: https://identity.internal.example

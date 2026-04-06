@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-api-blue
+  namespace: checkout-prod
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: checkout-api
+      rollout-slot: blue
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: checkout-api
+        rollout-slot: blue
+    spec:
+      containers:
+        - name: checkout-api
+          image: ghcr.io/example/checkout-api:1.24.0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-api-green
+  namespace: checkout-prod
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: checkout-api
+      rollout-slot: green
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: checkout-api
+        rollout-slot: green
+    spec:
+      containers:
+        - name: checkout-api
+          image: ghcr.io/example/checkout-api:1.25.0
