@@ -1,0 +1,18 @@
+{
+  "name": "v8-optimizations-production-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --test runtime/tests/*.test.mjs",
+    "bench:shapes": "node runtime/benchmarks/shape-stability-benchmark.mjs",
+    "bench:serialization": "node runtime/benchmarks/serialization-benchmark.mjs",
+    "bench:allocation": "node runtime/benchmarks/allocation-pressure-benchmark.mjs",
+    "profile:shapes": "node --cpu-prof runtime/benchmarks/shape-stability-benchmark.mjs",
+    "profile:serialization": "node --cpu-prof runtime/benchmarks/serialization-benchmark.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+}

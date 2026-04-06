@@ -1,0 +1,15 @@
+{
+  "name": "high-throughput-services-production-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --test runtime/tests/*.test.mjs",
+    "run:overload": "node runtime/scenarios/overload-simulation.mjs",
+    "run:batching": "node runtime/scenarios/batching-simulation.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+}

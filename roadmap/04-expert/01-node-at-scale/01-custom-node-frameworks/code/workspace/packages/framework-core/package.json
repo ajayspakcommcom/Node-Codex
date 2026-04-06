@@ -1,0 +1,13 @@
+{
+  "name": "@platform/framework-core",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./create-service": "./src/create-service.ts",
+    "./types": "./src/types.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "echo \"No tests configured\""
+  }
+}

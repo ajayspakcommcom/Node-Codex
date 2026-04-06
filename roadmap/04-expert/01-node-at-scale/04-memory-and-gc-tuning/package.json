@@ -1,0 +1,18 @@
+{
+  "name": "memory-gc-tuning-production-harness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --test runtime/tests/*.test.mjs",
+    "run:cache": "node runtime/scenarios/cache-growth.mjs",
+    "run:allocation": "node runtime/scenarios/allocation-pressure.mjs",
+    "run:retention": "node runtime/scenarios/retained-state.mjs",
+    "run:cache:gc": "node --expose-gc runtime/scenarios/cache-growth.mjs",
+    "run:allocation:gc": "node --expose-gc runtime/scenarios/allocation-pressure.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "^6.0.2"
+  }
+}

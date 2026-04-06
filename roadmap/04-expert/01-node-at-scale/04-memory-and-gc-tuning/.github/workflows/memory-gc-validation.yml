@@ -1,0 +1,36 @@
+name: memory-gc-validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-memory-topic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: roadmap/04-expert/01-node-at-scale/04-memory-and-gc-tuning/package.json
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: roadmap/04-expert/01-node-at-scale/04-memory-and-gc-tuning
+
+      - name: Typecheck topic code
+        run: npm run typecheck
+        working-directory: roadmap/04-expert/01-node-at-scale/04-memory-and-gc-tuning
+
+      - name: Run tests
+        run: npm test
+        working-directory: roadmap/04-expert/01-node-at-scale/04-memory-and-gc-tuning
+
+      - name: Run cache scenario
+        run: npm run run:cache
+        working-directory: roadmap/04-expert/01-node-at-scale/04-memory-and-gc-tuning

@@ -1,0 +1,10 @@
+{
+  "name": "native-addons-cpp",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter ./apps/** dev",
+    "typecheck": "pnpm --recursive typecheck",
+    "test": "pnpm --recursive test"
+  }
+}
