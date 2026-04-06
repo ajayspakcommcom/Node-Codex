@@ -1,0 +1,32 @@
+name: multi-region-validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-multi-region-topic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: roadmap/04-expert/02-architecture-mastery/04-multi-region-systems/package.json
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: roadmap/04-expert/02-architecture-mastery/04-multi-region-systems
+
+      - name: Typecheck topic code
+        run: npm run typecheck
+        working-directory: roadmap/04-expert/02-architecture-mastery/04-multi-region-systems
+
+      - name: Run tests
+        run: npm test
+        working-directory: roadmap/04-expert/02-architecture-mastery/04-multi-region-systems

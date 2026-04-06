@@ -1,0 +1,32 @@
+name: cqrs-validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-cqrs-topic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: roadmap/04-expert/02-architecture-mastery/02-cqrs/package.json
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: roadmap/04-expert/02-architecture-mastery/02-cqrs
+
+      - name: Typecheck topic code
+        run: npm run typecheck
+        working-directory: roadmap/04-expert/02-architecture-mastery/02-cqrs
+
+      - name: Run tests
+        run: npm test
+        working-directory: roadmap/04-expert/02-architecture-mastery/02-cqrs
