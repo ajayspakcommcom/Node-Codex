@@ -1,0 +1,13 @@
+{
+  "name": "@platform/contracts",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./order-command": "./src/order-command.ts",
+    "./order-events": "./src/order-events.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "echo \"No tests configured\""
+  }
+}

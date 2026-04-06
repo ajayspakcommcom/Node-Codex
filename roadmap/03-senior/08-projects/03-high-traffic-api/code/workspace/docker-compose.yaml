@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  public-api:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "apps/public-api/src/server.ts"]
+    environment:
+      CATALOG_SERVICE_URL: http://catalog-service:4600
+      SEARCH_INDEXER_URL: http://search-indexer:4700
+      REDIS_URL: redis://redis:6379
+    volumes:
+      - .:/workspace
+
+  catalog-service:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/catalog-service/src/server.ts"]
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/catalog
+    volumes:
+      - .:/workspace
+
+  search-indexer:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/search-indexer/src/server.ts"]
+    volumes:
+      - .:/workspace
+
+  redis:
+    image: redis:7
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: catalog

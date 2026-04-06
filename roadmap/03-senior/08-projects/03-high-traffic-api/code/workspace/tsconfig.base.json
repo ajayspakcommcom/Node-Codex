@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@platform/contracts/*": ["packages/contracts/src/*"],
+      "@platform/cache/*": ["packages/cache/src/*"],
+      "@platform/observability/*": ["packages/observability/src/*"],
+      "@platform/performance-controls/*": ["packages/performance-controls/src/*"],
+      "@platform/internal-http/*": ["packages/internal-http/src/*"]
+    }
+  }
+}

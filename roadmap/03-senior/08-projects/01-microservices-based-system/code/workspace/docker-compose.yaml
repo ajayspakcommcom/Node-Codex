@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  api-gateway:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "apps/api-gateway/src/server.ts"]
+    environment:
+      API_GATEWAY_PORT: "4000"
+      ORDERS_SERVICE_URL: "http://orders-service:4100"
+    volumes:
+      - .:/workspace
+    depends_on:
+      - orders-service
+  orders-service:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/orders-service/src/server.ts"]
+    environment:
+      ORDERS_SERVICE_PORT: "4100"
+      INVENTORY_SERVICE_URL: "http://inventory-service:4200"
+      PAYMENTS_SERVICE_URL: "http://payments-service:4300"
+    volumes:
+      - .:/workspace
+    depends_on:
+      - inventory-service
+      - payments-service
+  inventory-service:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/inventory-service/src/server.ts"]
+    environment:
+      INVENTORY_SERVICE_PORT: "4200"
+    volumes:
+      - .:/workspace
+  payments-service:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/payments-service/src/server.ts"]
+    environment:
+      PAYMENTS_SERVICE_PORT: "4300"
+    volumes:
+      - .:/workspace

@@ -1,0 +1,13 @@
+{
+  "name": "@platform/events",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./command-publisher": "./src/command-publisher.ts",
+    "./processed-message-store": "./src/processed-message-store.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "echo \"No tests configured\""
+  }
+}

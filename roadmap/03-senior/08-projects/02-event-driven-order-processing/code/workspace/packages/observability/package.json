@@ -1,0 +1,12 @@
+{
+  "name": "@platform/observability",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./logger": "./src/logger.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "echo \"No tests configured\""
+  }
+}

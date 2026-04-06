@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  orders-api:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "apps/orders-api/src/server.ts"]
+    volumes:
+      - .:/workspace
+  order-workflow:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/order-workflow/src/server.ts"]
+    volumes:
+      - .:/workspace
+  inventory-consumer:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/inventory-consumer/src/server.ts"]
+    volumes:
+      - .:/workspace
+  payments-consumer:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/payments-consumer/src/server.ts"]
+    volumes:
+      - .:/workspace
+  order-projection:
+    image: node:22
+    working_dir: /workspace
+    command: ["node", "services/order-projection/src/server.ts"]
+    volumes:
+      - .:/workspace
