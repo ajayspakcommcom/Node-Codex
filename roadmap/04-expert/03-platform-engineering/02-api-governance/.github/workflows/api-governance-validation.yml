@@ -1,0 +1,27 @@
+name: api-governance-validation
+
+on:
+  push:
+    paths:
+      - "roadmap/04-expert/03-platform-engineering/02-api-governance/**"
+  pull_request:
+    paths:
+      - "roadmap/04-expert/03-platform-engineering/02-api-governance/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: roadmap/04-expert/03-platform-engineering/02-api-governance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: roadmap/04-expert/03-platform-engineering/02-api-governance/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run run:sample
