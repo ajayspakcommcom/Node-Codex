@@ -1,0 +1,27 @@
+name: high-performance-data-pipeline-validation
+
+on:
+  push:
+    paths:
+      - "roadmap/04-expert/07-projects/03-high-performance-data-pipeline/**"
+  pull_request:
+    paths:
+      - "roadmap/04-expert/07-projects/03-high-performance-data-pipeline/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: roadmap/04-expert/07-projects/03-high-performance-data-pipeline
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: roadmap/04-expert/07-projects/03-high-performance-data-pipeline/package-lock.json
+      - run: npm install
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run run:sample
