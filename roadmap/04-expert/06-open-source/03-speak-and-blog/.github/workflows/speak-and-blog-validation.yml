@@ -1,0 +1,27 @@
+name: speak-and-blog-validation
+
+on:
+  push:
+    paths:
+      - "roadmap/04-expert/06-open-source/03-speak-and-blog/**"
+  pull_request:
+    paths:
+      - "roadmap/04-expert/06-open-source/03-speak-and-blog/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: roadmap/04-expert/06-open-source/03-speak-and-blog
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: roadmap/04-expert/06-open-source/03-speak-and-blog/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run run:sample
